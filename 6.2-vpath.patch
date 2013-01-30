@@ -1,0 +1,15 @@
+--- origsrc/fxmm_6.2/configure.ac	2012-12-15 10:25:13.000000000 -0600
++++ src/fxmm_6.2/configure.ac	2013-01-29 21:26:55.397925300 -0600
+@@ -233,9 +233,9 @@ AC_OUTPUT
+ 
+ dnl Create a link to logo icons
+ for s in 16 32 64; do
+-  ln -s fxar.png desktop_icons/${s}/fxar${s}.png
+-  ln -s fxmm.png desktop_icons/${s}/fxmm${s}.png
+-  ln -s fxsv.png desktop_icons/${s}/fxsv${s}.png
++  ln -s fxar.png $srcdir/desktop_icons/${s}/fxar${s}.png
++  ln -s fxmm.png $srcdir/desktop_icons/${s}/fxmm${s}.png
++  ln -s fxsv.png $srcdir/desktop_icons/${s}/fxsv${s}.png
+ done
+ 
+ 

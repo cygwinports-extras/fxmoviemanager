@@ -1,0 +1,36 @@
+--- origsrc/fxmm_6.2/configure.ac	2013-01-29 21:46:54.321289900 -0600
++++ src/fxmm_6.2/configure.ac	2013-01-29 22:02:18.935174800 -0600
+@@ -51,9 +51,6 @@ if test "$prefix" = "/usr/local"; then
+   AC_DEFINE(INSTALLATIONPATH,"/usr/local",INSTALLATIONPATH)
+ fi
+ 
+-dnl Prevents setting compilation flags
+-CXXFLAGS=""
+-
+ dnl Check for header files
+ AC_HEADER_STDC
+ 
+--- origsrc/fxmm_6.2/fxarchive/configure.ac	2012-10-14 15:22:41.000000000 -0500
++++ src/fxmm_6.2/fxarchive/configure.ac	2013-01-29 22:36:43.688271900 -0600
+@@ -21,9 +21,6 @@ AC_GNU_SOURCE
+ dnl Checks for C++
+ AC_LANG_CPLUSPLUS
+ 
+-dnl Prevents setting compilation flags
+-CXXFLAGS=""
+-
+ dnl Checks for compilers
+ AC_PROG_CXX
+ AC_PROG_CC
+--- origsrc/fxmm_6.2/fxscanvirus/configure.ac	2012-10-14 15:27:34.000000000 -0500
++++ src/fxmm_6.2/fxscanvirus/configure.ac	2013-01-29 22:36:52.474774400 -0600
+@@ -21,9 +21,6 @@ AC_GNU_SOURCE
+ dnl Checks for C++
+ AC_LANG_CPLUSPLUS
+ 
+-dnl Prevents setting compilation flags
+-CXXFLAGS=""
+-
+ dnl Checks for compilers
+ AC_PROG_CXX
+ AC_PROG_CC

@@ -1,0 +1,11 @@
+--- origsrc/fxmm_6.2/Makefile.am	2013-01-29 22:03:26.230023800 -0600
++++ src/fxmm_6.2/Makefile.am	2013-01-29 22:21:15.782198700 -0600
+@@ -3,7 +3,7 @@
+ #
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = src
++SUBDIRS = src fxarchive fxscanvirus
+ 
+ docdir = $(prefix)/share/doc/fxmoviemanager
+ 

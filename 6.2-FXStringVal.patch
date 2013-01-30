@@ -1,0 +1,25 @@
+--- origsrc/fxmm_6.2/src/MovieInfoDialog.cpp	2013-01-20 17:07:48.000000000 -0600
++++ src/fxmm_6.2/src/MovieInfoDialog.cpp	2013-01-29 21:25:05.893520000 -0600
+@@ -32,9 +32,11 @@
+ #include "MovieInfoDialog.h"
+ 
+ #ifdef HAVE_LIBFOX_1_7
+- #define VALUE_TO_STRING FXString::value
++ #define VALUE_TO_STRING(v) FXString::value(FXlong(v))
++ #define VALUE_TO_STRING_3 FXString::value
+ #elif HAVE_LIBFOX_1_6
+- #define VALUE_TO_STRING FXStringVal
++ #define VALUE_TO_STRING(v) FXStringVal(FXlong(v), 10)
++ #define VALUE_TO_STRING_3 FXStringVal
+ #endif
+ 
+ extern "C" {
+@@ -136,7 +138,7 @@ FXString MovieInfoDialog::rateConvert(un
+     val = FXfloat(num)/FXfloat(den);
+   }
+ 
+-  rateText = VALUE_TO_STRING(val,4,2)+" frm/sec ";
++  rateText = VALUE_TO_STRING_3(val,4,2)+" frm/sec ";
+ 
+   return rateText;
+   }

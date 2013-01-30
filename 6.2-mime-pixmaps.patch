@@ -1,0 +1,38 @@
+--- origsrc/fxmm_6.2/Makefile.am	2012-12-23 12:34:21.000000000 -0600
++++ src/fxmm_6.2/Makefile.am	2013-01-29 21:42:30.655209000 -0600
+@@ -41,9 +41,9 @@ $(top_srcdir)/desktop_icons/16/fxsv.png
+ $(top_srcdir)/desktop_icons/16/fxar.png
+ 
+ 
+-pixmapdir = $(prefix)/share/pixmaps
++fxmmpixmapdir = $(prefix)/share/fxmm/pixmaps
+ 
+-pixmap_DATA = \
++fxmmpixmap_DATA = \
+ $(top_srcdir)/mime_icons/mime_3gp.gif \
+ $(top_srcdir)/mime_icons/mime_avi.gif \
+ $(top_srcdir)/mime_icons/mime_dv.gif \
+@@ -217,7 +217,11 @@ $(top_srcdir)/mime_icons/unknow_dir.jpg
+ $(top_srcdir)/mime_icons/unknow_exe.jpg \
+ $(top_srcdir)/mime_icons/unknow_img.jpg \
+ $(top_srcdir)/mime_icons/unknow_file.jpg \
+-$(top_srcdir)/mime_icons/unknow_arch.jpg \
++$(top_srcdir)/mime_icons/unknow_arch.jpg
++
++pixmapdir = $(prefix)/share/pixmaps
++
++pixmap_DATA = \
+ $(top_srcdir)/desktop_icons/64/fxmm.png \
+ $(top_srcdir)/desktop_icons/64/fxsv.png \
+ $(top_srcdir)/desktop_icons/64/fxar.png
+--- origsrc/fxmm_6.2/src/MimeTypeDialog.cpp	2013-01-20 17:37:25.000000000 -0600
++++ src/fxmm_6.2/src/MimeTypeDialog.cpp	2013-01-29 21:43:59.716303000 -0600
+@@ -2345,7 +2345,7 @@ void MimeTypeDialog::saveThemeColors(){
+ 
+ // Set search path for icons
+ long MimeTypeDialog::onCmdSelectIconPath(FXObject*,FXSelector,void*){
+-  FXString path=(iconpath.empty()) ? "/usr/local/share/pixmaps" : iconpath.text();
++  FXString path=(iconpath.empty()) ? "/usr/share/fxmm/pixmaps" : iconpath.text();
+   FXDirDialog opendialog(this,"Search path for icons?");
+   opendialog.setDirectory(path);
+   if(opendialog.execute()){
