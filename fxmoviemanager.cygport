@@ -1,5 +1,5 @@
 NAME="fxmoviemanager"
-VERSION=6.2
+VERSION=6.3
 RELEASE=1
 CATEGORY="Video"
 SUMMARY="File manager for videos"
@@ -9,7 +9,7 @@ simple front-end to both mplayer and ffplay. It has also a bult-in internal
 player that requires SDL and FFmpeg. Both filemanager and playlist can display
 thumbnails of movie files making easier working with video clips and ordering
 different pieces of the same movie."
-REQUIRES="ffmpeg mplayer"
+REQUIRES="ffmpeg mplayer bzip2 gzip lzop p7zip tar xz unzip zip"
 HOMEPAGE="http://sourceforge.net/projects/fxmoviemanager/"
 SRC_URI="mirror://sourceforge/fxmoviemanager/fxmm_${VERSION}.tar.bz2"
 SRC_DIR="fxmm_${VERSION}"
@@ -21,6 +21,7 @@ PATCH_URI="
 	6.2-mime-pixmaps.patch
 	6.2-subdirs.patch
 	6.2-vpath.patch
+	6.3-no-udisks.patch
 "
 
 CYGPORT_USE_UNSTABLE_API=1

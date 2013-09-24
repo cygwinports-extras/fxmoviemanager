@@ -1,0 +1,24 @@
+--- origsrc/fxmm_6.3/src/fxmoviemanager.cpp	2013-04-27 21:13:06.000000000 -0500
++++ src/fxmm_6.3/src/fxmoviemanager.cpp	2013-09-24 10:49:41.131035500 -0500
+@@ -81,6 +81,9 @@ using namespace std;
+ using namespace ffmpegthumbnailer;
+ #endif
+ 
++static FXString currentUser;
++static FXString currentTemp;
++
+ // list of video files extensions
+ static const FXchar moviefiles[]=
+ 	"All Files (*)"
+@@ -910,9 +913,9 @@ FXMovieManager::FXMovieManager(FXApp *a)
+   	tooltip=new FXToolTip(getApp(),0);
+ 
+ 	// inithialize some parameters
+-	FXString currentUser = FXSystem::currentUserName();
++	currentUser = FXSystem::currentUserName();
+ 	printf("the Current User is: %s\n", currentUser.text());
+-	FXString currentTemp = FXSystem::getTempDirectory();
++	currentTemp = FXSystem::getTempDirectory();
+ 	printf("the Temp Directory is: %s\n", currentTemp.text());
+ 	FXString createTempDir="test -d "+currentTemp+"/.fxmm-"+currentUser+" || mkdir "+currentTemp+"/.fxmm-"+currentUser;
+ 	system (createTempDir.text());
