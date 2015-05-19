@@ -1,5 +1,5 @@
 NAME="fxmoviemanager"
-VERSION=6.3
+VERSION=6.7
 RELEASE=1
 CATEGORY="Video"
 SUMMARY="File manager for videos"
@@ -16,17 +16,18 @@ SRC_DIR="fxmm_${VERSION}"
 
 PATCH_URI="
 	6.2-cxxflags.patch
-	6.2-ffmpeg10.patch
 	6.2-FXStringVal.patch
-	6.2-mime-pixmaps.patch
+	6.7-mime-pixmaps.patch
 	6.2-subdirs.patch
 	6.2-vpath.patch
-	6.3-no-udisks.patch
 "
 
 CYGPORT_USE_UNSTABLE_API=1
 src_patch_hook() {
 	sed -i -e 's|_srcdir)\./|_srcdir)/../|g' fx*/Makefile.am
+	sed -i -e 's|/local/share/pixmaps|/share/fxmm/pixmaps|' */*.cpp
 }
+
+CYGCONF_ARGS="--disable-player2"
 
 DOCS="ArtisticLicense2 GPLicense"
